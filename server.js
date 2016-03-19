@@ -2,6 +2,7 @@ var http = require('http');
 var fs = require('fs');
 var express = require("express");
 var bodyParser = require("body-parser");
+var util = require("util");
 var app = express();
 var portNo = 5005;
 var kill = "alive";
@@ -25,11 +26,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/', express.static(__dirname+'/'));
 
 app.all('*', function(req,res){
-	console.log(req.body);
-	console.log(JSON.stringify(req.body));
+	console.log(util.inspect(req));
+	//console.log(JSON.stringify(req.body));
 	res.send("HI CALDER");
 	res.end("yes");
 });
+
+
 /*
 app.post('/server_input',function(req,res){
 	console.log(req.body);
