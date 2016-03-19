@@ -27,24 +27,10 @@ app.use('/', express.static(__dirname+'/'));
 app.all('*', function(req,res){
 	console.log(req.body);
 	console.log(JSON.stringify(req.body));
-	plane_date = new Date(req.body.date);
-	console.log(plane_date);
-	server_date = new Date();
-
-	delay = server_date.getTime()- plane_date.getTime();
-	console.log(delay);
-	if (kill == "kill")
-	{
-		console.log("kill toggled. kill sent to plane.");
-	}
-	else
-	{
-		console.log("kill not toggled.");
-	}
-	res.send(kill);
+	res.send("HI CALDER");
 	res.end("yes");
 });
-
+/*
 app.post('/server_input',function(req,res){
 	console.log(req.body);
 	console.log(JSON.stringify(req.body));
@@ -65,7 +51,7 @@ app.post('/server_input',function(req,res){
 	res.send(kill);
 	res.end("yes");
 });
-
+*/
 /*
 
 	console.log(req.body);
