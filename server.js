@@ -25,8 +25,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/', express.static(__dirname+'/'));
 
+
+
 app.all('*', function(req,res){
-	console.log(util.inspect(req.body));
+	var buffer = new Buffer(req.body);
+	var stream = new BufferStream(buffer);
+	console.log(stream);
 	//console.log(JSON.stringify(req.body));
 	res.send("HI CALDER");
 	res.end("yes");
