@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/', express.static(__dirname+'/'));
 
 app.all('*', function(req,res){
-	console.log(util.inspect(req));
+	console.log(util.inspect(req.body));
 	//console.log(JSON.stringify(req.body));
 	res.send("HI CALDER");
 	res.end("yes");
